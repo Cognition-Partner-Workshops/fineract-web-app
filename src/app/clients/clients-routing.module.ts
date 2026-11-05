@@ -55,7 +55,7 @@ import { ClientTransactionPayResolver } from './common-resolvers/client-transact
 import { ClientDataAndTemplateResolver } from './common-resolvers/client-and-template.resolver';
 import { ClientCollateralResolver } from './common-resolvers/client-collateral.resolver';
 
-const routes: Routes = [
+export const routes: Routes = [
   Route.withShell([
     {
       path: 'clients',
@@ -96,6 +96,7 @@ const routes: Routes = [
               resolve: {
                 clientAccountsData: ClientAccountsResolver,
                 clientChargesData: ClientChargesResolver,
+                clientSummary: ClientSummaryResolver,
                 clientCollateralData: ClientCollateralResolver
               }
             },
