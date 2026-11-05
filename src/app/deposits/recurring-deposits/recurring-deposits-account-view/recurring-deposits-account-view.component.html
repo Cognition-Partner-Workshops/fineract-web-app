@@ -56,7 +56,7 @@
                 <table class="account-overview">
                   <tbody>
                     <tr>
-                      <td>{{ 'labels.inputs.Current Balance' | translate }}</td>
+                      <th scope="row">{{ 'labels.inputs.Current Balance' | translate }}</th>
                       <td class="r-amount">
                         {{
                           recurringDepositsAccountData.summary.accountBalance
@@ -65,7 +65,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>{{ 'labels.inputs.Deposit Amount' | translate }}</td>
+                      <th scope="row">{{ 'labels.inputs.Deposit Amount' | translate }}</th>
                       <td class="r-amount">
                         {{
                           recurringDepositsAccountData.depositAmount
@@ -74,7 +74,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>{{ 'labels.inputs.Deposit Period' | translate }}</td>
+                      <th scope="row">{{ 'labels.inputs.Deposit Period' | translate }}</th>
                       <td class="r-amount">{{ recurringDepositsAccountData.depositPeriod | number }}</td>
                     </tr>
                   </tbody>
