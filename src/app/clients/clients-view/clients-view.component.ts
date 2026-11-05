@@ -9,7 +9,7 @@
 /** Angular Imports */
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { DomSanitizer } from '@angular/platform-browser';
+import { toSafeImageDataUrl } from 'app/core/utils/report-blob-url';
 import { MatDialog } from '@angular/material/dialog';
 
 /** Custom Dialogs */
@@ -81,7 +81,6 @@ export class ClientsViewComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private clientsService = inject(ClientsService);
-  private _sanitizer = inject(DomSanitizer);
   dialog = inject(MatDialog);
 
   clientViewData: any;
@@ -102,7 +101,7 @@ export class ClientsViewComponent implements OnInit {
       next: (base64Image: any) => {
         // If base64Image is null, client has no profile image
         if (base64Image) {
-          this.clientImage = this._sanitizer.bypassSecurityTrustResourceUrl(base64Image);
+          this.clientImage = toSafeImageDataUrl(base64Image);
         } else {
           this.clientImage = null;
         }
