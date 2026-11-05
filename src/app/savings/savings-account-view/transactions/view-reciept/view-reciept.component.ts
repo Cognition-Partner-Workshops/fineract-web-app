@@ -55,7 +55,7 @@ export class ViewRecieptComponent implements OnInit, OnDestroy {
     }
 
     const contentType = this.transactionRecieptData.headers.get('Content-Type');
-    if (this.transactionRecieptData.body.size === 0) {
+    if (new Blob([this.transactionRecieptData.body]).size === 0) {
       return;
     }
 
