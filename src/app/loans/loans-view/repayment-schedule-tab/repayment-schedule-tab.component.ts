@@ -108,6 +108,9 @@ export class RepaymentScheduleTabComponent implements OnInit, OnChanges {
 
   totalRepaymentExpected: number = 0;
 
+  /** Sum of the outstanding amount of every installment shown in the schedule */
+  totalOutstanding: number = 0;
+
   /** Stores if there is any waived amount */
   isWaived: boolean;
   /** Columns to be displayed in original schedule table. */
@@ -343,12 +346,14 @@ export class RepaymentScheduleTabComponent implements OnInit, OnChanges {
     if (this.repaymentScheduleDetails?.periods) {
       this.listOfData = this.repaymentScheduleDetails.periods;
       this.totalRepaymentExpected = 0;
+      this.totalOutstanding = 0;
       this.listOfData.forEach((item) => {
         this.editCache[item.period] = {
           edit: false,
           data: { ...item }
         };
         this.totalRepaymentExpected = this.totalRepaymentExpected + item.totalDueForPeriod;
+        this.totalOutstanding = this.totalOutstanding + (item.totalOutstandingForPeriod ?? 0);
       });
     }
   }

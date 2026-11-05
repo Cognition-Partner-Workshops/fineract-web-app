@@ -193,7 +193,7 @@
         </th>
         <td mat-cell class="r-amount" *matCellDef="let item">{{ item.totalOutstandingForPeriod | formatNumber }}</td>
         <td mat-footer-cell class="r-amount" *matFooterCellDef>
-          <b> {{ repaymentScheduleDetails?.totalOutstanding | currency: currencyCode : 'symbol-narrow' : '1.2-2' }} </b>
+          <b> {{ totalOutstanding | currency: currencyCode : 'symbol-narrow' : '1.2-2' }} </b>
         </td>
       </ng-container>
       <ng-container matColumnDef="header">
