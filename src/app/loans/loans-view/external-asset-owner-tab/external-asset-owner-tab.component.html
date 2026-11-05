@@ -14,18 +14,18 @@
         <table>
           <tbody>
             <tr>
-              <td class="flex-25">
+              <th class="flex-25" scope="row">
                 <b>{{ 'labels.inputs.Status' | translate }} :</b>
-              </td>
+              </th>
               <td class="flex-25 left">
                 <div [ngClass]="itemStatus(activeTransferData.status)">
                   <fa-icon icon="stop"></fa-icon>
                   <span class="m-l-10 external-asset-owner-status">{{ activeTransferData.status }}</span>
                 </div>
               </td>
-              <td class="flex-25">
+              <th class="flex-25" scope="row">
                 <b>{{ 'labels.inputs.Owner External Id' | translate }} :</b>
-              </td>
+              </th>
               <td class="flex-25 left">
                 <mifosx-external-identifier
                   externalId="{{ activeTransferData.owner.externalId }}"
@@ -34,70 +34,70 @@
               </td>
             </tr>
             <tr>
-              <td class="flex-25">
+              <th class="flex-25" scope="row">
                 <b>{{ 'labels.inputs.Settlement Date' | translate }} :</b>
-              </td>
+              </th>
               <td class="flex-25 left">
                 {{ activeTransferData.settlementDate | dateFormat }}
               </td>
-              <td class="flex-25">
+              <th class="flex-25" scope="row">
                 <b>{{ 'labels.inputs.Effective Date' | translate }} :</b>
-              </td>
+              </th>
               <td class="flex-25 left">
                 {{ activeTransferData.effectiveFrom | dateFormat }}
               </td>
             </tr>
             <tr>
-              <td class="flex-25">
+              <th class="flex-25" scope="row">
                 <b>{{ 'labels.inputs.Details' | translate }} :</b>
-              </td>
+              </th>
               <td class="flex-75 left">
                 <table>
                   <tbody>
                     <tr>
-                      <td class="flex-50">
+                      <th class="flex-50" scope="row">
                         <b>{{ 'labels.inputs.Principal Outstanding' | translate }} :</b>
-                      </td>
+                      </th>
                       <td class="flex-50 r-amount">
                         {{ activeTransferData.details.totalPrincipalOutstanding | formatNumber }}
                       </td>
                     </tr>
                     <tr>
-                      <td class="flex-50">
+                      <th class="flex-50" scope="row">
                         <b>{{ 'labels.inputs.Interest Outstanding' | translate }} :</b>
-                      </td>
+                      </th>
                       <td class="flex-50 r-amount">
                         {{ activeTransferData.details.totalInterestOutstanding | formatNumber }}
                       </td>
                     </tr>
                     <tr>
-                      <td class="flex-50">
+                      <th class="flex-50" scope="row">
                         <b>{{ 'labels.inputs.Fees Outstanding' | translate }} :</b>
-                      </td>
+                      </th>
                       <td class="flex-50 r-amount">
                         {{ activeTransferData.details.totalFeeChargesOutstanding | formatNumber }}
                       </td>
                     </tr>
                     <tr>
-                      <td class="flex-50">
+                      <th class="flex-50" scope="row">
                         <b>{{ 'labels.inputs.Penalties Outstanding' | translate }} :</b>
-                      </td>
+                      </th>
                       <td class="flex-50 r-amount">
                         {{ activeTransferData.details.totalPenaltyChargesOutstanding | formatNumber }}
                       </td>
                     </tr>
                     <tr>
-                      <td class="flex-50">
+                      <th class="flex-50" scope="row">
                         <b>{{ 'labels.inputs.Outstanding' | translate }} :</b>
-                      </td>
+                      </th>
                       <td class="flex-50 r-amount">
                         {{ activeTransferData.details.totalOutstanding | formatNumber }}
                       </td>
                     </tr>
                     <tr>
-                      <td class="flex-50">
+                      <th class="flex-50" scope="row">
                         <b>{{ 'labels.inputs.Overpaid' | translate }} :</b>
-                      </td>
+                      </th>
                       <td class="flex-50 r-amount">{{ activeTransferData.details.totalOverpaid | formatNumber }}</td>
                     </tr>
                   </tbody>

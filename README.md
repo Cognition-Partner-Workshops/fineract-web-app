@@ -92,7 +92,7 @@ Choose ONE of the following methods to install the web app:
    ```
 2. Run the container:
    ```
-   docker run -d -p 4200:80 openmf/web-app:latest
+   docker run -d -p 4200:8080 openmf/web-app:latest
    ```
 3. Access the application at `http://localhost:4200/`
 

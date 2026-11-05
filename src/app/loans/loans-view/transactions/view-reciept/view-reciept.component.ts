@@ -8,7 +8,8 @@
 
 /** Angular Imports */
 import { Component, OnInit, inject } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
+import { HttpResponse } from '@angular/common/http';
+import { ReportViewerComponent } from 'app/shared/report-viewer/report-viewer.component';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
@@ -22,21 +23,19 @@ import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
   styleUrls: ['./view-reciept.component.scss'],
   imports: [
     ...STANDALONE_SHARED_IMPORTS,
-    FaIconComponent
+    FaIconComponent,
+    ReportViewerComponent
   ]
 })
 export class ViewRecieptComponent implements OnInit {
-  private sanitizer = inject(DomSanitizer);
   private route = inject(ActivatedRoute);
 
-  /** trusted resource url for pentaho output */
-  pentahoUrl: any;
+  reportResponse: HttpResponse<ArrayBuffer> | null = null;
   /** Transaction Reciept Data */
   transactionRecieptData: any;
 
   /**
    * Fetches transaction reciept `resolve`
-   * @param {DomSanitizer} sanitizer DOM Sanitizer
    * @param {ActivatedRoute} route Activated Route
    */
   constructor() {
@@ -46,9 +45,6 @@ export class ViewRecieptComponent implements OnInit {
   }
 
   ngOnInit() {
-    const contentType = this.transactionRecieptData.headers.get('Content-Type');
-    const file = new Blob([this.transactionRecieptData.body], { type: contentType });
-    const filecontent = URL.createObjectURL(file);
-    this.pentahoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(filecontent);
+    this.reportResponse = this.transactionRecieptData;
   }
 }

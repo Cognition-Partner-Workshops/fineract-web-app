@@ -237,7 +237,7 @@ export class EditFloatingRateComponent implements OnInit {
    * if successful redirects to view created floating rate.
    */
   submit() {
-    this.floatingRatePeriodsData.map((floatingRatePeriod) => {
+    this.floatingRatePeriodsData.forEach((floatingRatePeriod) => {
       floatingRatePeriod.modifiedOn = undefined;
       floatingRatePeriod.createdOn = undefined;
       floatingRatePeriod.id = undefined;

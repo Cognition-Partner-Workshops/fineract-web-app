@@ -105,7 +105,6 @@ export class GeneralTabComponent implements OnInit {
         productCopy['currencyCode'] = productCopy['currency'] ? productCopy['currency']['code'] : null;
         productCopy['interestRatePerPeriod'] = productCopy['annualInterestRate'];
         productCopy['transactionProcessingStrategyCode'] = productCopy['transactionProcessingStrategyName'];
-        productCopy['allowPartialPeriodInterestCalculation'] = productCopy['allowPartialPeriodInterestCalculation'];
         productCopy['locale'] = this.settingsService.language.code;
 
         let valueTmp: any = productCopy['daysInMonthType']['value'];

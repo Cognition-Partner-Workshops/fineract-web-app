@@ -267,3 +267,8 @@ body {
 .no-break-content {
   overflow-wrap: anywhere !important;
 }
+
+:where([scope='row']) {
+  font-weight: inherit;
+  text-align: inherit;
+}

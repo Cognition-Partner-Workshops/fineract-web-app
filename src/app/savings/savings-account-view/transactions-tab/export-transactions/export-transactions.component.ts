@@ -8,7 +8,8 @@
 
 /** Angular Imports */
 import { Component, OnInit, inject } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
+import { HttpResponse } from '@angular/common/http';
+import { ReportViewerComponent } from 'app/shared/report-viewer/report-viewer.component';
 import { UntypedFormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 
@@ -28,11 +29,11 @@ import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
   styleUrls: ['./export-transactions.component.scss'],
   imports: [
     ...STANDALONE_SHARED_IMPORTS,
-    FaIconComponent
+    FaIconComponent,
+    ReportViewerComponent
   ]
 })
 export class ExportTransactionsComponent implements OnInit {
-  private sanitizer = inject(DomSanitizer);
   private reportsService = inject(ReportsService);
   private formBuilder = inject(UntypedFormBuilder);
   private dateUtils = inject(Dates);
@@ -47,14 +48,12 @@ export class ExportTransactionsComponent implements OnInit {
   transactionsReportForm: any;
   /** substitute for resolver */
   hideOutput = true;
-  /** trusted resource url for pentaho output */
-  pentahoUrl: any;
+  reportResponse: HttpResponse<ArrayBuffer> | null = null;
   /** Savings Account Id */
   savingsAccountId: any;
 
   /**
    * Fetches savings account data from grandparent's `resolve`
-   * @param {DomSanitizer} sanitizer DOM Sanitizer
    * @param {ReportsService} reportsService Reports Service
    * @param {FormBuilder} formBuilder Form Builder
    * @param {Dates} dateUtils Date Utils
@@ -110,10 +109,7 @@ export class ExportTransactionsComponent implements OnInit {
         this.settingsService.dateFormat
       )
       .subscribe((res: any) => {
-        const contentType = res.headers.get('Content-Type');
-        const file = new Blob([res.body], { type: contentType });
-        const filecontent = URL.createObjectURL(file);
-        this.pentahoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(filecontent);
+        this.reportResponse = res;
         this.hideOutput = false;
       });
   }

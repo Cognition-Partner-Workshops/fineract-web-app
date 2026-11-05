@@ -15,7 +15,7 @@
       <table>
         <tbody>
           <tr>
-            <td>{{ 'labels.inputs.External Id' | translate }}</td>
+            <th scope="row">{{ 'labels.inputs.External Id' | translate }}</th>
             <td>
               @if (recurringDepositsAccountData.externalId) {
                 <span>
@@ -33,7 +33,7 @@
             </td>
           </tr>
           <tr>
-            <td>{{ 'labels.inputs.Field Officer' | translate }}</td>
+            <th scope="row">{{ 'labels.inputs.Field Officer' | translate }}</th>
             <td>
               {{ recurringDepositsAccountData.fieldOfficerName }}
               @if (!recurringDepositsAccountData.fieldOfficerName) {
@@ -42,11 +42,11 @@
             </td>
           </tr>
           <tr>
-            <td>{{ 'labels.inputs.Activation date' | translate }}</td>
+            <th scope="row">{{ 'labels.inputs.Activation date' | translate }}</th>
             <td>{{ recurringDepositsAccountData.timeline.activatedOnDate | dateFormat }}</td>
           </tr>
           <tr>
-            <td>{{ 'labels.inputs.Maturity Date' | translate }}</td>
+            <th scope="row">{{ 'labels.inputs.Maturity Date' | translate }}</th>
             <td>
               <span>{{ recurringDepositsAccountData.maturityDate | dateFormat }}</span>
             </td>
@@ -56,9 +56,9 @@
           ) {
             <tr>
               @if (recurringDepositsAccountData.timeline.closedOnDate) {
-                <td>
+                <th scope="row">
                   {{ 'labels.inputs.Closed on Date' | translate }}
-                </td>
+                </th>
               }
               <td>
                 <span>{{ recurringDepositsAccountData.timeline.closedOnDate | dateFormat }}</span>
@@ -67,7 +67,7 @@
           }
           <tr></tr>
           <tr>
-            <td>{{ 'labels.inputs.Deposit Frequency' | translate }}</td>
+            <th scope="row">{{ 'labels.inputs.Deposit Frequency' | translate }}</th>
             <td>
               <span class="m-r-5">{{ recurringDepositsAccountData.recurringFrequency }}</span>
               {{ recurringDepositsAccountData.recurringFrequencyType.value | translateKey: 'catalogs' }}
@@ -75,7 +75,7 @@
           </tr>
           @if (recurringDepositsAccountData.minBalanceForInterestCalculation) {
             <tr>
-              <td>{{ 'labels.inputs.Balance Required for Interest Calculation' | translate }}</td>
+              <th scope="row">{{ 'labels.inputs.Balance Required for Interest Calculation' | translate }}</th>
               <td>
                 <span>{{ recurringDepositsAccountData.minBalanceForInterestCalculation }}</span>
               </td>
@@ -83,7 +83,7 @@
           }
           @if (recurringDepositsAccountData.witdHoldTax) {
             <tr>
-              <td>{{ 'labels.inputs.Witdhold Tax Group' | translate }}</td>
+              <th scope="row">{{ 'labels.inputs.Witdhold Tax Group' | translate }}</th>
               <td>
                 <span>{{ recurringDepositsAccountData.taxGroup.name }}</span>
               </td>
@@ -102,7 +102,7 @@
       <table>
         <tbody>
           <tr>
-            <td>{{ 'labels.inputs.Principal Amount' | translate }}</td>
+            <th scope="row">{{ 'labels.inputs.Principal Amount' | translate }}</th>
             <td class="r-amount">
               <span>{{
                 recurringDepositsAccountData.depositAmount | currency: currency.code : 'symbol-narrow' : '1.2-2'
@@ -110,7 +110,7 @@
             </td>
           </tr>
           <tr>
-            <td>{{ 'labels.inputs.Maturity Amount' | translate }}</td>
+            <th scope="row">{{ 'labels.inputs.Maturity Amount' | translate }}</th>
             <td class="r-amount">
               <span>{{
                 recurringDepositsAccountData.maturityAmount | currency: currency.code : 'symbol-narrow' : '1.2-2'
@@ -118,7 +118,7 @@
             </td>
           </tr>
           <tr>
-            <td>{{ 'labels.inputs.Recurring Deposit Amount' | translate }}</td>
+            <th scope="row">{{ 'labels.inputs.Recurring Deposit Amount' | translate }}</th>
             <td class="r-amount">
               <span>{{
                 recurringDepositsAccountData?.mandatoryRecommendedDepositAmount
@@ -127,7 +127,7 @@
             </td>
           </tr>
           <tr>
-            <td>{{ 'labels.inputs.Deposits till Date' | translate }}</td>
+            <th scope="row">{{ 'labels.inputs.Deposits till Date' | translate }}</th>
             <td class="r-amount">
               @if (recurringDepositsAccountData.summary.totalDeposits) {
                 <span>{{
@@ -141,7 +141,7 @@
             </td>
           </tr>
           <tr>
-            <td>{{ 'labels.inputs.Withdrwals till Date' | translate }}</td>
+            <th scope="row">{{ 'labels.inputs.Withdrwals till Date' | translate }}</th>
             <td class="r-amount">
               @if (recurringDepositsAccountData.summary.totalWithdrawals) {
                 <span>{{
@@ -156,7 +156,7 @@
           </tr>
           @if (recurringDepositsAccountData.summary.totalInterestEarned >= 0) {
             <tr>
-              <td>{{ 'labels.inputs.Interest Earned' | translate }}</td>
+              <th scope="row">{{ 'labels.inputs.Interest Earned' | translate }}</th>
               <td class="r-amount">
                 <span>{{
                   recurringDepositsAccountData.summary.totalInterestEarned
@@ -177,7 +177,7 @@
       <table>
         <tbody>
           <tr>
-            <td>{{ 'labels.inputs.External Id' | translate }}</td>
+            <th scope="row">{{ 'labels.inputs.External Id' | translate }}</th>
             <td>
               @if (recurringDepositsAccountData.externalId) {
                 <span>
@@ -195,7 +195,7 @@
             </td>
           </tr>
           <tr>
-            <td>{{ 'labels.inputs.Date of Deposit' | translate }}</td>
+            <th scope="row">{{ 'labels.inputs.Date of Deposit' | translate }}</th>
             <td>
               @if (!recurringDepositsAccountData.expectedFirstDepositOnDate) {
                 <span
@@ -216,7 +216,7 @@
             </td>
           </tr>
           <tr>
-            <td>{{ 'labels.inputs.Period' | translate }}</td>
+            <th scope="row">{{ 'labels.inputs.Period' | translate }}</th>
             <td>
               <span
                 >{{ recurringDepositsAccountData.depositPeriod }}&nbsp;{{
@@ -227,14 +227,14 @@
           </tr>
           @if (recurringDepositsAccountData.maturityDate) {
             <tr>
-              <td>{{ 'labels.inputs.Maturity Date' | translate }}</td>
+              <th scope="row">{{ 'labels.inputs.Maturity Date' | translate }}</th>
               <td>
                 <span>{{ recurringDepositsAccountData.maturityDate | dateFormat }}</span>
               </td>
             </tr>
           }
           <tr>
-            <td>{{ 'labels.inputs.Total Deposits' | translate }}</td>
+            <th scope="row">{{ 'labels.inputs.Total Deposits' | translate }}</th>
             <td class="r-amount">
               @if (recurringDepositsAccountData.summary.totalDeposits) {
                 <span>{{
@@ -248,7 +248,7 @@
             </td>
           </tr>
           <tr>
-            <td>{{ 'labels.inputs.Actual Available Balance' | translate }}</td>
+            <th scope="row">{{ 'labels.inputs.Actual Available Balance' | translate }}</th>
             <td class="r-amount">
               {{
                 recurringDepositsAccountData.summary.accountBalance
@@ -257,7 +257,7 @@
             </td>
           </tr>
           <tr>
-            <td>{{ 'labels.inputs.Recurring Deposit Amount' | translate }}</td>
+            <th scope="row">{{ 'labels.inputs.Recurring Deposit Amount' | translate }}</th>
             <td class="r-amount">
               {{
                 recurringDepositsAccountData.mandatoryRecommendedDepositAmount
@@ -267,7 +267,7 @@
           </tr>
           @if (recurringDepositsAccountData.summary.totalInterestEarned) {
             <tr>
-              <td>{{ 'labels.inputs.Interests Earned' | translate }}</td>
+              <th scope="row">{{ 'labels.inputs.Interests Earned' | translate }}</th>
               <td>
                 <span
                   >{{ recurringDepositsAccountData.currency.displaySymbol }}&nbsp;{{
@@ -279,7 +279,7 @@
           }
           @if (recurringDepositsAccountData.summary.totalWithdrawals) {
             <tr>
-              <td>{{ 'labels.inputs.Total Withdrawls' | translate }}</td>
+              <th scope="row">{{ 'labels.inputs.Total Withdrawls' | translate }}</th>
               <td class="r-amount">
                 <span>{{
                   recurringDepositsAccountData.summary.totalWithdrawals
@@ -290,7 +290,7 @@
           }
           @if (recurringDepositsAccountData.minBalanceForInterestCalculation) {
             <tr>
-              <td>{{ 'labels.inputs.Balance Required for Interest Calculation' | translate }}</td>
+              <th scope="row">{{ 'labels.inputs.Balance Required for Interest Calculation' | translate }}</th>
               <td class="r-amount">
                 <span>{{ recurringDepositsAccountData.minBalanceForInterestCalculation | number }}</span>
               </td>
@@ -308,7 +308,7 @@
       <table>
         <tbody>
           <tr>
-            <td>{{ 'labels.inputs.Principal Amount' | translate }}</td>
+            <th scope="row">{{ 'labels.inputs.Principal Amount' | translate }}</th>
             <td class="r-amount">
               @if (recurringDepositsAccountData.depositAmount) {
                 <span>{{
@@ -321,14 +321,14 @@
             </td>
           </tr>
           <tr>
-            <td>{{ 'labels.inputs.Rate of Interest' | translate }}</td>
+            <th scope="row">{{ 'labels.inputs.Rate of Interest' | translate }}</th>
             <td class="r-amount">
               <span>{{ recurringDepositsAccountData.nominalAnnualInterestRate | formatNumber }} %</span>
             </td>
           </tr>
           @if (recurringDepositsAccountData.maturityDate) {
             <tr>
-              <td>{{ 'labels.inputs.Maturity Amount' | translate }}</td>
+              <th scope="row">{{ 'labels.inputs.Maturity Amount' | translate }}</th>
               <td class="r-amount">
                 <span>{{
                   recurringDepositsAccountData.maturityAmount | currency: currency.code : 'symbol-narrow' : '1.2-2'
@@ -337,7 +337,7 @@
             </tr>
           }
           <tr>
-            <td>{{ 'labels.inputs.Total Withdrawls' | translate }}</td>
+            <th scope="row">{{ 'labels.inputs.Total Withdrawls' | translate }}</th>
             <td class="r-amount">
               @if (recurringDepositsAccountData.summary.totalWithdrawals) {
                 <span>{{
@@ -352,14 +352,14 @@
           </tr>
           @if (recurringDepositsAccountData.timeline.closedOnDate) {
             <tr>
-              <td>{{ 'labels.inputs.Closed on Date' | translate }}</td>
+              <th scope="row">{{ 'labels.inputs.Closed on Date' | translate }}</th>
               <td>
                 {{ recurringDepositsAccountData.timeline.closedOnDate | dateFormat }}
               </td>
             </tr>
           }
           <tr>
-            <td>{{ 'labels.inputs.Deposits Frequency' | translate }}</td>
+            <th scope="row">{{ 'labels.inputs.Deposits Frequency' | translate }}</th>
             <td>
               {{ recurringDepositsAccountData.recurringFrequency }}&nbsp;{{
                 recurringDepositsAccountData.recurringFrequencyType.value | translateKey: 'catalogs'
@@ -368,7 +368,7 @@
           </tr>
           @if (recurringDepositsAccountData.summary.totalInterestEarned) {
             <tr>
-              <td>{{ 'labels.inputs.Interests Posted' | translate }}</td>
+              <th scope="row">{{ 'labels.inputs.Interests Posted' | translate }}</th>
               <td class="r-amount">
                 @if (recurringDepositsAccountData.summary.totalInterestPosted) {
                   <span>{{
@@ -397,11 +397,11 @@
       <table>
         <tbody>
           <tr>
-            <td>{{ 'labels.inputs.Interest Rate' | translate }}</td>
+            <th scope="row">{{ 'labels.inputs.Interest Rate' | translate }}</th>
             <td class="r-amount">{{ recurringDepositsAccountData.nominalAnnualInterestRate | formatNumber }} %</td>
           </tr>
           <tr>
-            <td>{{ 'labels.inputs.Interest Compounding Period' | translate }}</td>
+            <th scope="row">{{ 'labels.inputs.Interest Compounding Period' | translate }}</th>
             <td>
               <span>{{
                 recurringDepositsAccountData.interestCompoundingPeriodType.value | translateKey: 'catalogs'
@@ -409,19 +409,19 @@
             </td>
           </tr>
           <tr>
-            <td>{{ 'labels.inputs.Interest Posting Period' | translate }}</td>
+            <th scope="row">{{ 'labels.inputs.Interest Posting Period' | translate }}</th>
             <td>
               <span>{{ recurringDepositsAccountData.interestPostingPeriodType.value | translateKey: 'catalogs' }}</span>
             </td>
           </tr>
           <tr>
-            <td>{{ 'labels.inputs.Interest calculated using' | translate }}</td>
+            <th scope="row">{{ 'labels.inputs.Interest calculated using' | translate }}</th>
             <td>
               <span>{{ recurringDepositsAccountData.interestCalculationType.value | translateKey: 'catalogs' }}</span>
             </td>
           </tr>
           <tr>
-            <td>{{ 'labels.inputs.Days in Year' | translate }}</td>
+            <th scope="row">{{ 'labels.inputs.Days in Year' | translate }}</th>
             <td>
               <span>{{
                 recurringDepositsAccountData.interestCalculationDaysInYearType.value | translateKey: 'catalogs'
@@ -430,7 +430,7 @@
           </tr>
           @if (recurringDepositsAccountData.preClosurePenalApplicable) {
             <tr>
-              <td>{{ 'labels.inputs.Pre-closure penal Interest (less)' | translate }}</td>
+              <th scope="row">{{ 'labels.inputs.Pre-closure penal Interest (less)' | translate }}</th>
               <td>
                 <span
                   >{{ recurringDepositsAccountData.preClosurePenalInterest }} % on
@@ -453,7 +453,7 @@
       <table>
         <tbody>
           <tr>
-            <td>{{ 'labels.inputs.Interest Compounding Period' | translate }}</td>
+            <th scope="row">{{ 'labels.inputs.Interest Compounding Period' | translate }}</th>
             <td>
               <span>{{
                 recurringDepositsAccountData.interestCompoundingPeriodType.value | translateKey: 'catalogs'
@@ -461,19 +461,19 @@
             </td>
           </tr>
           <tr>
-            <td>{{ 'labels.inputs.Interest Posting Period' | translate }}</td>
+            <th scope="row">{{ 'labels.inputs.Interest Posting Period' | translate }}</th>
             <td>
               <span>{{ recurringDepositsAccountData.interestPostingPeriodType.value | translateKey: 'catalogs' }}</span>
             </td>
           </tr>
           <tr>
-            <td>{{ 'labels.inputs.Interest calculated using' | translate }}</td>
+            <th scope="row">{{ 'labels.inputs.Interest calculated using' | translate }}</th>
             <td>
               <span>{{ recurringDepositsAccountData.interestCalculationType.value | translateKey: 'catalogs' }}</span>
             </td>
           </tr>
           <tr>
-            <td>{{ 'labels.inputs.Days in Year' | translate }}</td>
+            <th scope="row">{{ 'labels.inputs.Days in Year' | translate }}</th>
             <td>
               <span>{{
                 recurringDepositsAccountData.interestCalculationDaysInYearType.value | translateKey: 'catalogs'
@@ -482,7 +482,7 @@
           </tr>
           @if (recurringDepositsAccountData.preClosurePenalApplicable) {
             <tr>
-              <td>{{ 'labels.inputs.Pre-closure penal Interest (less)' | translate }}</td>
+              <th scope="row">{{ 'labels.inputs.Pre-closure penal Interest (less)' | translate }}</th>
               <td>
                 <span
                   >{{ recurringDepositsAccountData.preClosurePenalInterest }} % on
@@ -495,7 +495,7 @@
           }
           @if (recurringDepositsAccountData.witdHoldTax) {
             <tr>
-              <td>{{ 'labels.inputs.Witdhold Tax Group' | translate }}</td>
+              <th scope="row">{{ 'labels.inputs.Witdhold Tax Group' | translate }}</th>
               <td>
                 <span>{{ recurringDepositsAccountData.taxGroup.name }}</span>
               </td>
