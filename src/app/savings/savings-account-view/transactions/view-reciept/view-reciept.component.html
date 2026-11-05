@@ -13,8 +13,8 @@
     </button>
   </div>
 
-  <div *ngIf="pentahoUrl; else noData" class="pdf-container">
-    <iframe [src]="pentahoUrl" class="pdf-iframe"></iframe>
+  <div *ngIf="reportResponse; else noData" class="pdf-container">
+    <mifosx-report-viewer [response]="reportResponse" height="600px"></mifosx-report-viewer>
   </div>
 
   <ng-template #noData>
