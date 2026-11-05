@@ -9,3 +9,6 @@ LICENSE
 .vscode
 dist
 .github
+.angular
+coverage
+.standards

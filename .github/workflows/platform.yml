@@ -1,0 +1,21 @@
+name: platform
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  platform:
+    # app_dir resolves to the checkout root; the template names the image and
+    # Helm release after its basename, so it must be the repository name.
+    uses: Cognition-Partner-Workshops/otterworks/.github/workflows/platform-app-pipeline.yml@19392116c2197d713811213778a7a1d75eb90cc0
+    permissions:
+      contents: read
+      pull-requests: write
+    with:
+      app_dir: ../fineract-web-app
+      standards_ref: 19392116c2197d713811213778a7a1d75eb90cc0

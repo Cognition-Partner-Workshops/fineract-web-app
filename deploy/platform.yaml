@@ -1,0 +1,9 @@
+# Pipeline settings read by the otterworks platform-app-pipeline.yml template
+app: fineract-web-app
+smoke:
+  - path: /health
+    expect: 200
+  - path: /
+    expect: 200
+  - path: /assets/env.js
+    expect: 200
