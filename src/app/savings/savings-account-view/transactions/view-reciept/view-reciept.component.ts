@@ -9,6 +9,7 @@
 /** Angular Imports */
 import { Component, OnInit, OnDestroy, inject } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { createReportObjectUrl, trustReportObjectUrl } from 'app/core/utils/report-blob-url';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
@@ -54,14 +55,12 @@ export class ViewRecieptComponent implements OnInit, OnDestroy {
     }
 
     const contentType = this.transactionRecieptData.headers.get('Content-Type');
-    const file = new Blob([this.transactionRecieptData.body], { type: contentType });
-
-    if (file.size === 0) {
+    if (new Blob([this.transactionRecieptData.body]).size === 0) {
       return;
     }
 
-    this.blobUrl = URL.createObjectURL(file);
-    this.pentahoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.blobUrl);
+    this.blobUrl = createReportObjectUrl(this.transactionRecieptData.body, contentType);
+    this.pentahoUrl = trustReportObjectUrl(this.sanitizer, this.blobUrl);
   }
 
   ngOnDestroy() {
