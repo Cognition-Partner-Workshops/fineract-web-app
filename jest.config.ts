@@ -80,7 +80,7 @@ const config: Config = {
   },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
-  transformIgnorePatterns: ['node_modules/(?!.*\\.mjs$|@angular|@fortawesome)']
+  transformIgnorePatterns: ['node_modules/(?!.*\\.mjs$|@angular|@fortawesome|@material/web|lit|@lit|@lit-labs)']
 };
 
 export default config;
