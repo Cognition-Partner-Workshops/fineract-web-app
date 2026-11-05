@@ -232,6 +232,8 @@ export class CreateGlimAccountComponent {
     data.groupId = this.loansAccountTemplate.group.id;
 
     delete data.principalAmount;
+    // TODO: 2025-03-17: Apparently (?!) unsupported for GLIM
+    delete data.allowPartialPeriodInterestCalculation;
     delete data.multiDisburseLoan;
     delete data.isFloatingInterestRate;
 
