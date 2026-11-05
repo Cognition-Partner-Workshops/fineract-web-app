@@ -117,13 +117,8 @@ export class MakeRepaymentComponent implements OnInit {
       skipInterestRefund: [false]
     });
 
-    if (this.isCapitalizedIncome()) {
-      this.repaymentLoanForm.addControl('transactionAmount', new UntypedFormControl('', []));
-      this.updateTransactionAmountValidators(false);
-    } else {
-      this.repaymentLoanForm.addControl('transactionAmount', new UntypedFormControl('', []));
-      this.updateTransactionAmountValidators(false);
-    }
+    this.repaymentLoanForm.addControl('transactionAmount', new UntypedFormControl('', []));
+    this.updateTransactionAmountValidators(false);
     if (this.isCapitalizedIncome() || this.isBuyDownFee()) {
       this.repaymentLoanForm.addControl('classificationId', new UntypedFormControl(''));
     }
