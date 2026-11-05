@@ -12,6 +12,7 @@
       <div class="search-box flex-40">
         <mat-form-field class="flex-fill flex-90">
           <input
+            [attr.aria-label]="'labels.text.Search by user' | translate"
             matInput
             placeholder="{{ 'labels.text.Search by user' | translate }}"
             (keyup)="applyFilter($event.target.value)"

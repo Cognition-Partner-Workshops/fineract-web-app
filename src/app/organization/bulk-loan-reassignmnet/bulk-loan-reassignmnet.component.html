@@ -100,27 +100,35 @@
           @if (officerTemplate !== undefined) {
             <table class="flex-48">
               <thead>
-                <th>{{ 'labels.inputs.Clients' | translate }}</th>
+                <tr>
+                  <th scope="col">{{ 'labels.inputs.Clients' | translate }}</th>
+                </tr>
               </thead>
               <tbody>
                 @for (clients of officerTemplate.accountSummaryCollection.clients; track clients) {
                   <tr>
-                    <table>
-                      <tr>
-                        <td>
-                          <strong> {{ clients.displayName }} </strong>
-                        </td>
-                      </tr>
-                      @for (loans of clients.loans; track loans) {
-                        <tr>
-                          <td>
-                            <mat-checkbox (change)="getLoans($event, loans.id)"
-                              >{{ loans.productName }}({{ loans.accountNo }})</mat-checkbox
-                            >
-                          </td>
-                        </tr>
-                      }
-                    </table>
+                    <td>
+                      <table>
+                        <thead>
+                          <tr>
+                            <th scope="col">
+                              <strong> {{ clients.displayName }} </strong>
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          @for (loans of clients.loans; track loans) {
+                            <tr>
+                              <td>
+                                <mat-checkbox (change)="getLoans($event, loans.id)"
+                                  >{{ loans.productName }}({{ loans.accountNo }})</mat-checkbox
+                                >
+                              </td>
+                            </tr>
+                          }
+                        </tbody>
+                      </table>
+                    </td>
                   </tr>
                 }
               </tbody>
@@ -130,27 +138,35 @@
           @if (officerTemplate !== undefined) {
             <table class="flex-48">
               <thead>
-                <th>{{ 'labels.inputs.Groups' | translate }}</th>
+                <tr>
+                  <th scope="col">{{ 'labels.inputs.Groups' | translate }}</th>
+                </tr>
               </thead>
               <tbody>
                 @for (groups of officerTemplate.accountSummaryCollection.groups; track groups) {
                   <tr>
-                    <table>
-                      <tr>
-                        <td>
-                          <strong> {{ groups.displayName }} </strong>
-                        </td>
-                      </tr>
-                      @for (loans of groups.loans; track loans) {
-                        <tr>
-                          <td>
-                            <mat-checkbox (change)="getLoans($event, loans.id)"
-                              >{{ loans.productName }}({{ loans.accountNo }})</mat-checkbox
-                            >
-                          </td>
-                        </tr>
-                      }
-                    </table>
+                    <td>
+                      <table>
+                        <thead>
+                          <tr>
+                            <th scope="col">
+                              <strong> {{ groups.displayName }} </strong>
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          @for (loans of groups.loans; track loans) {
+                            <tr>
+                              <td>
+                                <mat-checkbox (change)="getLoans($event, loans.id)"
+                                  >{{ loans.productName }}({{ loans.accountNo }})</mat-checkbox
+                                >
+                              </td>
+                            </tr>
+                          }
+                        </tbody>
+                      </table>
+                    </td>
                   </tr>
                 }
               </tbody>

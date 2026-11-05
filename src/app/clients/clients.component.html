@@ -11,6 +11,7 @@
     <div class="search-box m-r-30">
       <mat-form-field class="search-box">
         <input
+          [attr.aria-label]="'labels.text.SearchByClient' | translate"
           matInput
           placeholder="{{ 'labels.text.SearchByClient' | translate }}"
           class="search-box"

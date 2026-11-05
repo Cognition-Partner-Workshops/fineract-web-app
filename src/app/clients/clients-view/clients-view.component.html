@@ -76,21 +76,21 @@
               <table class="account-overview">
                 <tbody>
                   <tr>
-                    <td>
+                    <th scope="row">
                       <b>{{ 'labels.inputs.Office' | translate }}</b>
-                    </td>
+                    </th>
                     <td><mifosx-entity-name entityName="{{ clientViewData.officeName }}"></mifosx-entity-name></td>
                   </tr>
                   <tr>
-                    <td>
+                    <th scope="row">
                       <b>{{ 'labels.inputs.Client' | translate }}</b>
-                    </td>
+                    </th>
                     <td><mifosx-account-number accountNo="{{ clientViewData.accountNo }}"></mifosx-account-number></td>
                   </tr>
                   <tr>
-                    <td>
+                    <th scope="row">
                       <b>{{ 'labels.inputs.External Id' | translate }}</b>
-                    </td>
+                    </th>
                     <td>
                       <mifosx-external-identifier
                         externalId="{{ clientViewData.externalId }}"
@@ -100,16 +100,16 @@
                   </tr>
                   @if (clientViewData.activationDate) {
                     <tr>
-                      <td>
+                      <th scope="row">
                         <b>{{ 'labels.inputs.Activation Date' | translate }}</b>
-                      </td>
+                      </th>
                       <td>{{ clientViewData.activationDate | dateFormat }}</td>
                     </tr>
                   }
                   <tr>
-                    <td>
+                    <th scope="row">
                       <b>{{ 'labels.inputs.Staff' | translate }}</b>
-                    </td>
+                    </th>
                     @if (clientViewData.staffName) {
                       <td>{{ clientViewData.staffName }}</td>
                     }
@@ -125,9 +125,9 @@
                 <tbody>
                   @if (clientViewData.groups.length > 0) {
                     <tr>
-                      <td>
+                      <th scope="row">
                         <b>{{ 'labels.inputs.Member Of' | translate }}</b>
-                      </td>
+                      </th>
                       <td>
                         @for (group of clientViewData.groups; track group) {
                           <span>
@@ -139,16 +139,16 @@
                   }
                   @if (clientViewData.clientType) {
                     <tr>
-                      <td>
+                      <th scope="row">
                         <b>{{ 'labels.inputs.Client Type' | translate }}</b>
-                      </td>
+                      </th>
                       <td>{{ clientViewData.clientType.name }}</td>
                     </tr>
                   }
                   <tr>
-                    <td>
+                    <th scope="row">
                       <b>{{ 'labels.inputs.Mobile Number' | translate }}</b>
-                    </td>
+                    </th>
                     <td>
                       <mifosx-external-identifier
                         externalId="{{ clientViewData.mobileNo }}"
@@ -157,9 +157,9 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>
+                    <th scope="row">
                       <b>{{ 'labels.inputs.Email' | translate }}</b>
-                    </td>
+                    </th>
                     <td>
                       <mifosx-external-identifier
                         externalId="{{ clientViewData.emailAddress }}"

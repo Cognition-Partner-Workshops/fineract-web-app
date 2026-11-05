@@ -12,20 +12,21 @@
     <table>
       <tbody>
         <tr>
-          <td>
-            <p>
-              {{ 'labels.inputs.No. Of Loan Cycles' | translate }} :{{ clientSummary?.loanCycle }} <br />
-              {{ 'labels.inputs.No. of Active Loans' | translate }} :{{ clientSummary?.activeLoans }} <br />
-              {{ 'labels.inputs.Last Loan Amount' | translate }} :{{ clientSummary?.lastLoanAmount | formatNumber }}
-              <br />
-            </p>
-          </td>
-          <td>
-            <p>
-              {{ 'labels.inputs.No. of Active Savings' | translate }} :{{ clientSummary?.activeSavings }} <br />
-              {{ 'labels.inputs.Total Savings' | translate }} :{{ clientSummary?.totalSavings | formatNumber }} <br />
-            </p>
-          </td>
+          <th scope="row">{{ 'labels.inputs.No. Of Loan Cycles' | translate }}</th>
+          <td>{{ clientSummary?.loanCycle }}</td>
+          <th scope="row">{{ 'labels.inputs.No. of Active Savings' | translate }}</th>
+          <td>{{ clientSummary?.activeSavings }}</td>
+        </tr>
+        <tr>
+          <th scope="row">{{ 'labels.inputs.No. of Active Loans' | translate }}</th>
+          <td>{{ clientSummary?.activeLoans }}</td>
+          <th scope="row">{{ 'labels.inputs.Total Savings' | translate }}</th>
+          <td>{{ clientSummary?.totalSavings | formatNumber }}</td>
+        </tr>
+        <tr>
+          <th scope="row">{{ 'labels.inputs.Last Loan Amount' | translate }}</th>
+          <td>{{ clientSummary?.lastLoanAmount | formatNumber }}</td>
+          <td colspan="2"></td>
         </tr>
       </tbody>
     </table>

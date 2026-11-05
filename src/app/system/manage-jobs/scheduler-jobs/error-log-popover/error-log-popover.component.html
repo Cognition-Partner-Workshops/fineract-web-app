@@ -13,9 +13,9 @@
   <table class="m-b-5">
     <tbody>
       <tr class="m-b-20">
-        <td class="header">{{ 'labels.inputs.Start Time' | translate }}</td>
+        <th scope="row" class="header">{{ 'labels.inputs.Start Time' | translate }}</th>
         <td>{{ job.lastRunHistory.jobRunStartTime | datetimeFormat }}</td>
-        <td class="header">{{ 'labels.inputs.End Time' | translate }}</td>
+        <th scope="row" class="header">{{ 'labels.inputs.End Time' | translate }}</th>
         <td>{{ job.lastRunHistory.jobRunEndTime | datetimeFormat }}</td>
       </tr>
       <tr>

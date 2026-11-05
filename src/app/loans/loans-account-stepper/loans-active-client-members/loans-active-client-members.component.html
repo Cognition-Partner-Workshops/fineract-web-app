@@ -49,7 +49,12 @@
         <th mat-header-cell *matHeaderCellDef>{{ 'labels.inputs.Original Loan' | translate }}</th>
         <td mat-cell *matCellDef="let element">
           <mat-form-field>
-            <input type="number" matInput [(ngModel)]="element.principal" />
+            <input
+              [attr.aria-label]="'labels.inputs.Original Loan' | translate"
+              type="number"
+              matInput
+              [(ngModel)]="element.principal"
+            />
           </mat-form-field>
         </td>
       </ng-container>

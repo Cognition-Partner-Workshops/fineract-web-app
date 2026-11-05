@@ -9,6 +9,7 @@
 /** Angular Imports */
 import { Component, OnChanges, Input, inject } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { createReportObjectUrl, trustReportObjectUrl } from 'app/core/utils/report-blob-url';
 
 /** Custom Services */
 import { ReportsService } from '../../reports.service';
@@ -60,9 +61,8 @@ export class PentahoComponent implements OnChanges {
       )
       .subscribe((res: any) => {
         const contentType = res.headers.get('Content-Type');
-        const file = new Blob([res.body], { type: contentType });
-        const filecontent = URL.createObjectURL(file);
-        this.pentahoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(filecontent);
+        const filecontent = createReportObjectUrl(res.body, contentType);
+        this.pentahoUrl = trustReportObjectUrl(this.sanitizer, filecontent);
         this.hideOutput = false;
         this.progressBarService.decrease();
       });

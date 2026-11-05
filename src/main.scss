@@ -693,6 +693,11 @@ mifosx-notifications-page td {
   color: #999;
 }
 
+:where([scope='row']) {
+  text-align: inherit;
+  font-weight: normal;
+}
+
 .red {
   color: red;
 }

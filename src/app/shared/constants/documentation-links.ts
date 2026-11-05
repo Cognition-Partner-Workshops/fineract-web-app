@@ -84,5 +84,5 @@ export const DOCUMENTATION_PATHS: Record<DocumentationPage, string> = {
   mifosIrc: 'https://mifos.org/resources/community/communications/#mifos-irc',
   sourceforgeMifos: 'https://sourceforge.net/projects/mifos/',
   mifosDonate: 'https://mifos.org/donate/',
-  cronmaker: 'http://www.cronmaker.com/'
+  cronmaker: 'https://www.cronmaker.com/'
 };

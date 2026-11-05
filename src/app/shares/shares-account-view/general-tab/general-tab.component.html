@@ -13,7 +13,7 @@
       <table>
         <tbody>
           <tr>
-            <td>{{ 'labels.inputs.Activated On' | translate }}</td>
+            <th scope="row">{{ 'labels.inputs.Activated On' | translate }}</th>
             @if (sharesAccountData.timeline.activatedDate) {
               <td>
                 {{ sharesAccountData.timeline.activatedDate | dateFormat }}
@@ -26,11 +26,11 @@
             }
           </tr>
           <tr>
-            <td>{{ 'labels.inputs.Currency' | translate }}</td>
+            <th scope="row">{{ 'labels.inputs.Currency' | translate }}</th>
             <td>{{ sharesAccountData.currency.name }} [{{ sharesAccountData.currency.code }}]</td>
           </tr>
           <tr>
-            <td>{{ 'labels.inputs.External Id' | translate }}</td>
+            <th scope="row">{{ 'labels.inputs.External Id' | translate }}</th>
             @if (sharesAccountData.externalId) {
               <td>
                 <mifosx-external-identifier
@@ -45,7 +45,7 @@
             }
           </tr>
           <tr>
-            <td>{{ 'labels.inputs.Linked Savings Account(Dividend Posting)' | translate }}</td>
+            <th scope="row">{{ 'labels.inputs.Linked Savings Account(Dividend Posting)' | translate }}</th>
             @if (sharesAccountData.savingsAccountNumber) {
               <td>
                 <mifosx-account-number
@@ -71,11 +71,11 @@
       <table>
         <tbody>
           <tr>
-            <td>{{ 'labels.inputs.Pending for Approval Shares' | translate }}</td>
+            <th scope="row">{{ 'labels.inputs.Pending for Approval Shares' | translate }}</th>
             <td class="r-amount">{{ sharesAccountData.summary.totalPendingForApprovalShares | formatNumber }}</td>
           </tr>
           <tr>
-            <td>{{ 'labels.inputs.Approved Shares' | translate }}</td>
+            <th scope="row">{{ 'labels.inputs.Approved Shares' | translate }}</th>
             <td class="r-amount">{{ sharesAccountData.summary.totalApprovedShares | formatNumber }}</td>
           </tr>
         </tbody>

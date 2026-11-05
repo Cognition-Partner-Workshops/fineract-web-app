@@ -9,6 +9,7 @@
 /** Angular Imports */
 import { Component, OnInit, Input, inject } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { createReportObjectUrl, trustReportObjectUrl } from 'app/core/utils/report-blob-url';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 
 /** Custom Services */
@@ -48,8 +49,7 @@ export class StaffAssignmentHistoryComponent implements OnInit {
 
   ngOnInit() {
     const contentType = this.staffAssignmentHistoryData.headers.get('Content-Type');
-    const file = new Blob([this.staffAssignmentHistoryData.body], { type: contentType });
-    const filecontent = URL.createObjectURL(file);
-    this.pentahoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(filecontent);
+    const filecontent = createReportObjectUrl(this.staffAssignmentHistoryData.body, contentType);
+    this.pentahoUrl = trustReportObjectUrl(this.sanitizer, filecontent);
   }
 }

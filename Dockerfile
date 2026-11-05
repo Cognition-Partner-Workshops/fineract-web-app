@@ -41,9 +41,15 @@ RUN sh -c "ng build --output-path=/dist $BUILD_ENVIRONMENT_OPTIONS"
 ###############
 FROM $NGINX_IMAGE
 
-COPY --from=builder /dist/browser /usr/share/nginx/html
+COPY --from=builder --chown=nginx:nginx /dist/browser /usr/share/nginx/html
 
-EXPOSE 80
+RUN sed -i -E 's/listen[[:space:]]+80([;[:space:]])/listen 8080\1/g; s/listen[[:space:]]+\[::\]:80([;[:space:]])/listen [::]:8080\1/g' /etc/nginx/conf.d/default.conf \
+    && sed -i -E 's#^[[:space:]]*pid[[:space:]]+[^;]+;#pid /tmp/nginx.pid;#' /etc/nginx/nginx.conf \
+    && mkdir -p /var/cache/nginx /usr/share/nginx/html/assets \
+    && chown -R nginx:nginx /var/cache/nginx /usr/share/nginx/html/assets
+
+USER nginx
+EXPOSE 8080
 
 # When the container starts, replace the env.js with values from environment variables
 CMD ["/bin/sh",  "-c",  "envsubst < /usr/share/nginx/html/assets/env.template.js > /usr/share/nginx/html/assets/env.js && exec nginx -g 'daemon off;'"]
