@@ -9,6 +9,7 @@
 <div class="layout-row layout-lt-md-column gap-2percent">
   <mat-form-field [ngStyle]="{ flex: '0 0 ' + (flex || '83%') }">
     <input
+      [attr.aria-label]="'labels.text.NoFileSelected' | translate"
       matInput
       [readonly]="true"
       [value]="fileName || ''"
@@ -25,4 +26,11 @@
   </span>
 </div>
 
-<input type="file" #uploadFile accept="{{ acceptFilter }}" (change)="onFileSelect($event)" [style.display]="'none'" />
+<input
+  [attr.aria-label]="'labels.buttons.Browse' | translate"
+  type="file"
+  #uploadFile
+  accept="{{ acceptFilter }}"
+  (change)="onFileSelect($event)"
+  [style.display]="'none'"
+/>

@@ -22,7 +22,8 @@
   table {
     width: 100%;
 
-    td:hover {
+    td:hover,
+    th:hover {
       cursor: pointer;
     }
 

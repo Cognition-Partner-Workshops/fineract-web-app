@@ -71,6 +71,7 @@
                   }
                   @case ('JSON') {
                     <textarea
+                      [attr.aria-label]="datatables.toDisplayLabel(columnHeader.columnName)"
                       cdkTextareaAutosize="true"
                       cdkAutosizeMaxRows="20"
                       cdkAutosizeMinRows="1"
