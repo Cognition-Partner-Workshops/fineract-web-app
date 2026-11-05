@@ -17,6 +17,7 @@
       (ngSubmit)="addNote()"
     >
       <mat-form-field class="flex-85-minus-20px">
+        <mat-label>{{ 'labels.text.Write a note' | translate }}</mat-label>
         <textarea
           required
           formControlName="note"

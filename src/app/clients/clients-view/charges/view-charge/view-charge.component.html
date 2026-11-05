@@ -35,41 +35,41 @@
         <table>
           <tbody>
             <tr>
-              <td>{{ 'labels.inputs.Currency' | translate }}</td>
+              <th scope="row">{{ 'labels.inputs.Currency' | translate }}</th>
               <td>{{ chargeData.currency.name }}</td>
             </tr>
 
             <tr>
-              <td>{{ 'labels.inputs.Charge Time Type' | translate }}</td>
+              <th scope="row">{{ 'labels.inputs.Charge Time Type' | translate }}</th>
               <td>{{ chargeData.chargeTimeType.value }}</td>
             </tr>
 
             <tr>
-              <td>{{ 'labels.inputs.Charge Calculation Type' | translate }}</td>
+              <th scope="row">{{ 'labels.inputs.Charge Calculation Type' | translate }}</th>
               <td>{{ chargeData.chargeCalculationType.value }}</td>
             </tr>
 
             <tr>
-              <td>{{ 'labels.inputs.Due as of' | translate }}</td>
+              <th scope="row">{{ 'labels.inputs.Due as of' | translate }}</th>
               <td>{{ chargeData.dueDate | dateFormat }}</td>
             </tr>
 
             <tr>
-              <td>{{ 'labels.inputs.Due' | translate }}</td>
+              <th scope="row">{{ 'labels.inputs.Due' | translate }}</th>
               <td>{{ chargeData.amount }}</td>
             </tr>
 
             <tr>
-              <td>{{ 'labels.inputs.Paid' | translate }}</td>
+              <th scope="row">{{ 'labels.inputs.Paid' | translate }}</th>
               <td>{{ chargeData.amountPaid }}</td>
             </tr>
 
             <tr>
-              <td>{{ 'labels.inputs.Waived' | translate }}</td>
+              <th scope="row">{{ 'labels.inputs.Waived' | translate }}</th>
               <td>{{ chargeData.amountWaived }}</td>
             </tr>
             <tr>
-              <td>{{ 'labels.inputs.Outstanding' | translate }}</td>
+              <th scope="row">{{ 'labels.inputs.Outstanding' | translate }}</th>
               <td>{{ chargeData.amountOutstanding }}</td>
             </tr>
           </tbody>

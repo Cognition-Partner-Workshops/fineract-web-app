@@ -8,7 +8,8 @@
 
 /** Angular Imports */
 import { Component, OnChanges, Input, inject } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
+import { HttpResponse } from '@angular/common/http';
+import { ReportViewerComponent } from 'app/shared/report-viewer/report-viewer.component';
 
 /** Custom Services */
 import { ReportsService } from '../../reports.service';
@@ -24,11 +25,11 @@ import { STANDALONE_SHARED_IMPORTS } from 'app/standalone-shared.module';
   templateUrl: './pentaho.component.html',
   styleUrls: ['./pentaho.component.scss'],
   imports: [
-    ...STANDALONE_SHARED_IMPORTS
+    ...STANDALONE_SHARED_IMPORTS,
+    ReportViewerComponent
   ]
 })
 export class PentahoComponent implements OnChanges {
-  private sanitizer = inject(DomSanitizer);
   private reportsService = inject(ReportsService);
   private settingsService = inject(SettingsService);
   private progressBarService = inject(ProgressBarService);
@@ -38,8 +39,7 @@ export class PentahoComponent implements OnChanges {
 
   /** substitute for resolver */
   hideOutput = true;
-  /** trusted resource url for pentaho output */
-  pentahoUrl: any;
+  reportResponse: HttpResponse<ArrayBuffer> | null = null;
 
   /**
    * Fetches run report data post changes in run report form.
@@ -59,10 +59,7 @@ export class PentahoComponent implements OnChanges {
         this.settingsService.dateFormat
       )
       .subscribe((res: any) => {
-        const contentType = res.headers.get('Content-Type');
-        const file = new Blob([res.body], { type: contentType });
-        const filecontent = URL.createObjectURL(file);
-        this.pentahoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(filecontent);
+        this.reportResponse = res;
         this.hideOutput = false;
         this.progressBarService.decrease();
       });

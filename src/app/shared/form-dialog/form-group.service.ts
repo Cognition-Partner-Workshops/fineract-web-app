@@ -21,9 +21,7 @@ export class FormGroupService {
     const group: any = {};
 
     formfields.forEach((formfield) => {
-      group[formfield.controlName] = formfield.required
-        ? new UntypedFormControl(formfield.value, this.buildValidators(formfield))
-        : new UntypedFormControl(formfield.value, this.buildValidators(formfield));
+      group[formfield.controlName] = new UntypedFormControl(formfield.value, this.buildValidators(formfield));
     });
 
     return new UntypedFormGroup(group);

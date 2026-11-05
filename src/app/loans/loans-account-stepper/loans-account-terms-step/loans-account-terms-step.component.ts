@@ -560,7 +560,7 @@ export class LoansAccountTermsStepComponent implements OnInit, OnChanges {
       new DatepickerBase({
         controlName: 'expectedDisbursementDate',
         label: 'Expected Disbursement Date',
-        value: new Date() || '',
+        value: new Date(),
         type: 'datetime-local',
         minDate: this.minDate,
         maxDate: this.maxDate,

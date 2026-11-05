@@ -105,7 +105,7 @@
               <tbody>
                 @for (clients of officerTemplate.accountSummaryCollection.clients; track clients) {
                   <tr>
-                    <table>
+                    <table role="presentation">
                       <tr>
                         <td>
                           <strong> {{ clients.displayName }} </strong>
@@ -135,7 +135,7 @@
               <tbody>
                 @for (groups of officerTemplate.accountSummaryCollection.groups; track groups) {
                   <tr>
-                    <table>
+                    <table role="presentation">
                       <tr>
                         <td>
                           <strong> {{ groups.displayName }} </strong>

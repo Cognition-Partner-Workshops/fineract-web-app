@@ -41,9 +41,17 @@ RUN sh -c "ng build --output-path=/dist $BUILD_ENVIRONMENT_OPTIONS"
 ###############
 FROM $NGINX_IMAGE
 
-COPY --from=builder /dist/browser /usr/share/nginx/html
+# Run nginx as an unprivileged user on port 8080
+RUN addgroup -S -g 10001 app && adduser -S -D -H -u 10001 -G app app \
+    && sed -i 's/listen\s*80;/listen 8080;/' /etc/nginx/conf.d/default.conf \
+    && sed -i '/^user /d; s#^pid .*#pid /tmp/nginx.pid;#' /etc/nginx/nginx.conf \
+    && chown -R 10001:10001 /var/cache/nginx /etc/nginx/conf.d
 
-EXPOSE 80
+COPY --from=builder --chown=10001:10001 /dist/browser /usr/share/nginx/html
+
+USER 10001
+
+EXPOSE 8080
 
 # When the container starts, replace the env.js with values from environment variables
 CMD ["/bin/sh",  "-c",  "envsubst < /usr/share/nginx/html/assets/env.template.js > /usr/share/nginx/html/assets/env.js && exec nginx -g 'daemon off;'"]

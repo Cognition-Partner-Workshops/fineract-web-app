@@ -23,31 +23,31 @@
       </tr>
       @if (isNotNullOrEmpty(paymentDetailData.accountNumber)) {
         <tr>
-          <td class="mat-body-strong">{{ 'labels.inputs.Account No' | translate }}</td>
+          <th class="mat-body-strong" scope="row">{{ 'labels.inputs.Account No' | translate }}</th>
           <td>{{ paymentDetailData.accountNumber }}</td>
         </tr>
       }
       @if (isNotNullOrEmpty(paymentDetailData.checkNumber)) {
         <tr>
-          <td class="mat-body-strong">{{ 'labels.inputs.Cheque Number' | translate }}</td>
+          <th class="mat-body-strong" scope="row">{{ 'labels.inputs.Cheque Number' | translate }}</th>
           <td>{{ paymentDetailData.checkNumber }}</td>
         </tr>
       }
       @if (isNotNullOrEmpty(paymentDetailData.routingCode)) {
         <tr>
-          <td class="mat-body-strong">{{ 'labels.inputs.Routing Code' | translate }}</td>
+          <th class="mat-body-strong" scope="row">{{ 'labels.inputs.Routing Code' | translate }}</th>
           <td class="mat-body-strong">{{ paymentDetailData.routingCode }}</td>
         </tr>
       }
       @if (isNotNullOrEmpty(paymentDetailData.receiptNumber)) {
         <tr>
-          <td class="mat-body-strong">{{ 'labels.inputs.Receipt No' | translate }}</td>
+          <th class="mat-body-strong" scope="row">{{ 'labels.inputs.Receipt No' | translate }}</th>
           <td>{{ paymentDetailData.receiptNumber }}</td>
         </tr>
       }
       @if (isNotNullOrEmpty(paymentDetailData.bankNumber)) {
         <tr>
-          <td class="mat-body-strong">{{ 'labels.inputs.Bank No' | translate }}</td>
+          <th class="mat-body-strong" scope="row">{{ 'labels.inputs.Bank No' | translate }}</th>
           <td>{{ paymentDetailData.bankNumber }}</td>
         </tr>
       }

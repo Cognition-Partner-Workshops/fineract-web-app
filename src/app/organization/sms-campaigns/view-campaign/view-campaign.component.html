@@ -94,7 +94,9 @@
 
               <div class="layout-column gap-10px template-message">
                 <h3>{{ 'labels.heading.Template Message' | translate }} :</h3>
-                <textarea matInput disabled>{{ smsCampaignData.campaignMessage }}</textarea>
+                <textarea [attr.aria-label]="'labels.heading.Template Message' | translate" matInput disabled>{{
+                  smsCampaignData.campaignMessage
+                }}</textarea>
               </div>
             </mat-list>
           </div>
