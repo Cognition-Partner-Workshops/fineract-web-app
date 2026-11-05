@@ -55,7 +55,7 @@
                     <tbody>
                       @if (loanDetailsData.delinquencyRange) {
                         <tr>
-                          <td>{{ 'labels.inputs.Delinquency Classification' | translate }} :</td>
+                          <th scope="row">{{ 'labels.inputs.Delinquency Classification' | translate }} :</th>
                           <td>
                             <span class="m-r-3"><i [ngClass]="loanDelinquencyClassificationStyle"></i></span>
                             {{ loanDetailsData?.delinquencyRange.classification }}
@@ -64,7 +64,7 @@
                       }
                       @if (loanDetailsData.delinquent && loanDetailsData.delinquent.pastDueDays > 0) {
                         <tr>
-                          <td>{{ 'labels.inputs.Past Due Days' | translate }} :</td>
+                          <th scope="row">{{ 'labels.inputs.Past Due Days' | translate }} :</th>
                           <td>{{ loanDetailsData?.delinquent.pastDueDays | formatNumber }}</td>
                         </tr>
                       }
@@ -74,7 +74,7 @@
                         loanDetailsData.delinquent.pastDueDays !== loanDetailsData.delinquent.delinquentDays
                       ) {
                         <tr>
-                          <td>{{ 'labels.inputs.Delinquent Days' | translate }} :</td>
+                          <th scope="row">{{ 'labels.inputs.Delinquent Days' | translate }} :</th>
                           <td>{{ loanDetailsData?.delinquent.delinquentDays | formatNumber }}</td>
                         </tr>
                       }
@@ -90,7 +90,7 @@
                 <table class="account-overview">
                   <tbody>
                     <tr>
-                      <td>{{ 'labels.inputs.Current Balance' | translate }}</td>
+                      <th scope="row">{{ 'labels.inputs.Current Balance' | translate }}</th>
                       <td class="r-amount">
                         {{
                           loanDetailsData.summary.totalOutstanding | currency: currency.code : 'symbol-narrow' : '1.2-2'
@@ -99,7 +99,7 @@
                     </tr>
                     @if (loanDisplayArrearsDelinquency < 2) {
                       <tr>
-                        <td>{{ 'labels.inputs.Arrears By' | translate }}</td>
+                        <th scope="row">{{ 'labels.inputs.Arrears By' | translate }}</th>
                         @if (loanDetailsData.summary.totalOverdue >= 0) {
                           <td class="r-amount">
                             {{
@@ -116,13 +116,13 @@
                     }
                     @if (loanDetailsData.inArrears) {
                       <tr>
-                        <td>{{ 'labels.inputs.Arrears Since' | translate }}</td>
+                        <th scope="row">{{ 'labels.inputs.Arrears Since' | translate }}</th>
                         <td>{{ loanDetailsData.summary.overdueSinceDate | dateFormat }}</td>
                       </tr>
                     }
                     @if (loanDetailsData.totalOverpaid && loanDetailsData.totalOverpaid > 0) {
                       <tr>
-                        <td>{{ 'labels.inputs.Overpaid By' | translate }}</td>
+                        <th scope="row">{{ 'labels.inputs.Overpaid By' | translate }}</th>
                         <td class="r-amount">
                           {{ loanDetailsData.totalOverpaid | currency: currency.code : 'symbol-narrow' : '1.2-2' }}
                         </td>

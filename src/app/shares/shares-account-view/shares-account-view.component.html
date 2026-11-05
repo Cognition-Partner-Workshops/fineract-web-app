@@ -53,12 +53,12 @@
                 <table class="account-overview">
                   <tbody>
                     <tr>
-                      <td>{{ 'labels.inputs.Current Market Price' | translate }} :</td>
+                      <th scope="row">{{ 'labels.inputs.Current Market Price' | translate }} :</th>
                       <td>{{ sharesAccountData.currentMarketPrice | formatNumber }}</td>
                     </tr>
                     @if (sharesAccountData.lockinPeriod) {
                       <tr>
-                        <td>{{ 'labels.inputs.Lockin Period' | translate }} :</td>
+                        <th scope="row">{{ 'labels.inputs.Lockin Period' | translate }} :</th>
                         <td>
                           {{ sharesAccountData.lockinPeriod }}
                           {{ sharesAccountData.lockPeriodTypeEnum.value | translateKey: 'catalogs' }}

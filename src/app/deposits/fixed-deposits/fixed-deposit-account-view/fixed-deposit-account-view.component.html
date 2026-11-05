@@ -55,7 +55,7 @@
                 <table class="account-overview flex-100">
                   <tbody>
                     <tr>
-                      <td class="flex-70">{{ 'labels.inputs.Current Balance' | translate }}</td>
+                      <th class="flex-70" scope="row">{{ 'labels.inputs.Current Balance' | translate }}</th>
                       <td class="r-amount flex-30">
                         {{
                           fixedDepositsAccountData.summary.accountBalance
@@ -64,7 +64,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <td class="flex-70">{{ 'labels.inputs.Deposit Amount' | translate }}</td>
+                      <th class="flex-70" scope="row">{{ 'labels.inputs.Deposit Amount' | translate }}</th>
                       <td class="r-amount flex-30">
                         {{
                           fixedDepositsAccountData.depositAmount | currency: currency.code : 'symbol-narrow' : '1.2-2'

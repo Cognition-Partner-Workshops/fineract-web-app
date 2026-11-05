@@ -15,7 +15,8 @@
   background: none;
 }
 
-.login-version-table td {
+.login-version-table td,
+.login-version-table th {
   padding: 0.4rem 0.7rem;
   text-align: left;
   vertical-align: middle;
@@ -41,7 +42,8 @@
     max-width: 100%;
   }
 
-  .login-version-table td {
+  .login-version-table td,
+  .login-version-table th {
     padding: 0.3rem 0.4rem;
   }
 }

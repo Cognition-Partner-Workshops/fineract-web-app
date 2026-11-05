@@ -107,7 +107,8 @@
             padding: 6px;
           }
 
-          td {
+          td,
+          [scope='row'] {
             padding: 3px;
           }
         }

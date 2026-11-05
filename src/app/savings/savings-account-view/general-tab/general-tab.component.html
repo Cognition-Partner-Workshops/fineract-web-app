@@ -21,7 +21,7 @@
           <table>
             <tbody>
               <tr>
-                <td>{{ 'labels.inputs.External Id' | translate }}</td>
+                <th scope="row">{{ 'labels.inputs.External Id' | translate }}</th>
                 @if (savingsAccountData.externalId) {
                   <td>
                     <mifosx-external-identifier
@@ -34,7 +34,7 @@
                 }
               </tr>
               <tr>
-                <td>{{ 'labels.inputs.Activated On' | translate }}</td>
+                <th scope="row">{{ 'labels.inputs.Activated On' | translate }}</th>
                 <td>
                   {{
                     savingsAccountData.timeline.activatedOnDate
@@ -44,15 +44,15 @@
                 </td>
               </tr>
               <tr>
-                <td>{{ 'labels.inputs.Field Officer' | translate }}</td>
+                <th scope="row">{{ 'labels.inputs.Field Officer' | translate }}</th>
                 <td>{{ savingsAccountData.fieldOfficerName ? savingsAccountData.fieldOfficerName : 'Unassigned' }}</td>
               </tr>
               <tr>
-                <td>{{ 'labels.inputs.Currency' | translate }}</td>
+                <th scope="row">{{ 'labels.inputs.Currency' | translate }}</th>
                 <td>{{ savingsAccountData.currency.name }} [{{ savingsAccountData.currency.code }}]</td>
               </tr>
               <tr>
-                <td>{{ 'labels.inputs.Nominal Interest Rate' | translate }}</td>
+                <th scope="row">{{ 'labels.inputs.Nominal Interest Rate' | translate }}</th>
                 <td class="r-amount">
                   @if (savingsAccountData.nominalAnnualInterestRate) {
                     <span>{{ savingsAccountData.nominalAnnualInterestRate | formatNumber }} %</span>
@@ -71,11 +71,11 @@
           <table>
             <tbody>
               <tr>
-                <td>{{ 'labels.inputs.Field Officer' | translate }}</td>
+                <th scope="row">{{ 'labels.inputs.Field Officer' | translate }}</th>
                 <td>{{ savingsAccountData.fieldOfficerName ? savingsAccountData.fieldOfficerName : 'Unassigned' }}</td>
               </tr>
               <tr>
-                <td>{{ 'labels.inputs.Balance' | translate }}</td>
+                <th scope="row">{{ 'labels.inputs.Balance' | translate }}</th>
                 <td class="r-amount">
                   {{ savingsAccountData.summary.accountBalance | currency: currency.code : 'symbol-narrow' : '1.2-2' }}
                 </td>
@@ -91,7 +91,7 @@
             <tbody>
               @if (savingsAccountData.summary.totalDeposits) {
                 <tr>
-                  <td>{{ 'labels.inputs.Total Deposits' | translate }}</td>
+                  <th scope="row">{{ 'labels.inputs.Total Deposits' | translate }}</th>
                   <td class="r-amount">
                     {{ savingsAccountData.summary.totalDeposits | currency: currency.code : 'symbol-narrow' : '1.2-2' }}
                   </td>
@@ -99,7 +99,7 @@
               }
               @if (savingsAccountData.summary.totalInterestEarned >= 0) {
                 <tr>
-                  <td>{{ 'labels.inputs.Total Interest Earned' | translate }}</td>
+                  <th scope="row">{{ 'labels.inputs.Total Interest Earned' | translate }}</th>
                   <td class="r-amount">
                     {{
                       savingsAccountData.summary.totalInterestEarned
@@ -120,7 +120,7 @@
           <tbody>
             @if (savingsAccountData.summary.totalWithdrawals) {
               <tr>
-                <td>{{ 'labels.inputs.Total Withdrawls' | translate }}</td>
+                <th scope="row">{{ 'labels.inputs.Total Withdrawls' | translate }}</th>
                 <td class="r-amount">
                   {{
                     savingsAccountData.summary.totalWithdrawals | currency: currency.code : 'symbol-narrow' : '1.2-2'
@@ -130,7 +130,7 @@
             }
             @if (savingsAccountData.summary.totalWithdrawalFees) {
               <tr>
-                <td>{{ 'labels.inputs.Withdrawals Fees' | translate }}</td>
+                <th scope="row">{{ 'labels.inputs.Withdrawals Fees' | translate }}</th>
                 <td class="r-amount">
                   {{
                     savingsAccountData.summary.totalWithdrawalFees | currency: currency.code : 'symbol-narrow' : '1.2-2'
@@ -140,7 +140,7 @@
             }
             @if (savingsAccountData.summary.totalAnnualFees) {
               <tr>
-                <td>{{ 'labels.inputs.Annual Fees' | translate }}</td>
+                <th scope="row">{{ 'labels.inputs.Annual Fees' | translate }}</th>
                 <td class="r-amount">
                   {{ savingsAccountData.summary.totalAnnualFees | currency: currency.code : 'symbol-narrow' : '1.2-2' }}
                 </td>
@@ -148,7 +148,7 @@
             }
             @if (savingsAccountData.summary.totalInterestEarned >= 0) {
               <tr>
-                <td>{{ 'labels.inputs.Interest Earned' | translate }}</td>
+                <th scope="row">{{ 'labels.inputs.Interest Earned' | translate }}</th>
                 <td class="r-amount">
                   {{
                     savingsAccountData.summary.totalInterestEarned | currency: currency.code : 'symbol-narrow' : '1.2-2'
@@ -158,7 +158,7 @@
             }
             @if (savingsAccountData.summary.totalInterestPosted) {
               <tr>
-                <td>{{ 'labels.inputs.Interest Posted' | translate }}</td>
+                <th scope="row">{{ 'labels.inputs.Interest Posted' | translate }}</th>
                 <td class="r-amount">
                   {{
                     savingsAccountData.summary.totalInterestPosted | currency: currency.code : 'symbol-narrow' : '1.2-2'
@@ -168,7 +168,7 @@
             }
             @if (savingsAccountData.summary.interestNotPosted >= 0) {
               <tr>
-                <td>{{ 'labels.inputs.Interest Earned Not Posted' | translate }}</td>
+                <th scope="row">{{ 'labels.inputs.Interest Earned Not Posted' | translate }}</th>
                 <td class="r-amount">
                   {{
                     savingsAccountData.summary.interestNotPosted | currency: currency.code : 'symbol-narrow' : '1.2-2'
@@ -178,7 +178,7 @@
             }
             @if (savingsAccountData.summary.totalOverdraftInterestDerived) {
               <tr>
-                <td>{{ 'labels.inputs.Interest On Overdraft' | translate }}</td>
+                <th scope="row">{{ 'labels.inputs.Interest On Overdraft' | translate }}</th>
                 <td class="r-amount">
                   {{
                     savingsAccountData.summary.totalOverdraftInterestDerived
@@ -189,7 +189,7 @@
             }
             @if (savingsAccountData.summary.interestNotPosted < 0) {
               <tr>
-                <td>{{ 'labels.inputs.Overdraft Interest Not Posted' | translate }}</td>
+                <th scope="row">{{ 'labels.inputs.Overdraft Interest Not Posted' | translate }}</th>
                 <td class="r-amount">
                   {{
                     savingsAccountData.summary.interestNotPosted | currency: currency.code : 'symbol-narrow' : '1.2-2'
@@ -199,29 +199,29 @@
             }
             @if (savingsAccountData.nominalAnnualInterestRate) {
               <tr>
-                <td>{{ 'labels.inputs.Nominal Interest Rate' | translate }}</td>
+                <th scope="row">{{ 'labels.inputs.Nominal Interest Rate' | translate }}</th>
                 <td class="r-amount">{{ savingsAccountData.nominalAnnualInterestRate | formatNumber }} %</td>
               </tr>
             }
             <tr>
-              <td>{{ 'labels.inputs.Interest Compounding Period' | translate }}</td>
+              <th scope="row">{{ 'labels.inputs.Interest Compounding Period' | translate }}</th>
               <td>{{ savingsAccountData.interestCompoundingPeriodType.value | translateKey: 'catalogs' }}</td>
             </tr>
             <tr>
-              <td>{{ 'labels.inputs.Interest Posting Period' | translate }}</td>
+              <th scope="row">{{ 'labels.inputs.Interest Posting Period' | translate }}</th>
               <td>{{ savingsAccountData.interestPostingPeriodType.value | translateKey: 'catalogs' }}</td>
             </tr>
             <tr>
-              <td>{{ 'labels.inputs.Interest Calculated Using' | translate }}</td>
+              <th scope="row">{{ 'labels.inputs.Interest Calculated Using' | translate }}</th>
               <td>{{ savingsAccountData.interestCalculationType.value | translateKey: 'catalogs' }}</td>
             </tr>
             <tr>
-              <td>{{ 'labels.inputs.Days in Year' | translate }}</td>
+              <th scope="row">{{ 'labels.inputs.Days in Year' | translate }}</th>
               <td>{{ savingsAccountData.interestCalculationDaysInYearType.value | translateKey: 'catalogs' }}</td>
             </tr>
             @if (savingsAccountData.withdrawalFee) {
               <tr>
-                <td>{{ 'labels.inputs.Withdrawal Fee' | translate }}</td>
+                <th scope="row">{{ 'labels.inputs.Withdrawal Fee' | translate }}</th>
                 <td class="r-amount">
                   {{ savingsAccountData.withdrawalFee.amount | currency: currency.code : 'symbol-narrow' : '1.2-2' }}
                 </td>
@@ -229,37 +229,37 @@
             }
             @if (savingsAccountData.lastActiveTransactionDate) {
               <tr>
-                <td>{{ 'labels.inputs.Last Active Transaction Date' | translate }}</td>
+                <th scope="row">{{ 'labels.inputs.Last Active Transaction Date' | translate }}</th>
                 <td>{{ savingsAccountData.lastActiveTransactionDate | dateFormat }}</td>
               </tr>
             }
             @if (!(savingsAccountData.subStatus.id === 0)) {
               <tr>
-                <td>{{ 'labels.inputs.Substatus' | translate }}</td>
+                <th scope="row">{{ 'labels.inputs.Substatus' | translate }}</th>
                 <td>{{ savingsAccountData.subStatus.value }}</td>
               </tr>
             }
             @if (savingsAccountData.daysToInactive) {
               <tr>
-                <td>{{ 'labels.inputs.Days to Inactive' | translate }}</td>
+                <th scope="row">{{ 'labels.inputs.Days to Inactive' | translate }}</th>
                 <td>{{ savingsAccountData.daysToInactive }}</td>
               </tr>
             }
             @if (savingsAccountData.daysToDormancy) {
               <tr>
-                <td>{{ 'labels.inputs.Days to Dormancy' | translate }}</td>
+                <th scope="row">{{ 'labels.inputs.Days to Dormancy' | translate }}</th>
                 <td>{{ savingsAccountData.daysToDormancy }}</td>
               </tr>
             }
             @if (savingsAccountData.daysToEscheat) {
               <tr>
-                <td>{{ 'labels.inputs.Days to Escheat' | translate }}</td>
+                <th scope="row">{{ 'labels.inputs.Days to Escheat' | translate }}</th>
                 <td>{{ savingsAccountData.daysToEscheat }}</td>
               </tr>
             }
             @if (savingsAccountData.annualFee) {
               <tr>
-                <td>{{ 'labels.inputs.Annual Fee' | translate }}</td>
+                <th scope="row">{{ 'labels.inputs.Annual Fee' | translate }}</th>
                 <td class="r-amount">
                   {{ savingsAccountData.annualFee.amount | currency: currency.code : 'symbol-narrow' : '1.2-2' }}
                 </td>
@@ -267,7 +267,7 @@
             }
             @if (savingsAccountData.allowOverdraft) {
               <tr>
-                <td>{{ 'labels.inputs.Overdraft Limit' | translate }}</td>
+                <th scope="row">{{ 'labels.inputs.Overdraft Limit' | translate }}</th>
                 <td class="r-amount">
                   {{ savingsAccountData.overdraftLimit | currency: currency.code : 'symbol-narrow' : '1.2-2' }}
                 </td>
@@ -275,7 +275,9 @@
             }
             @if (savingsAccountData.allowOverdraft) {
               <tr>
-                <td>{{ 'labels.inputs.Minimum Overdraft Required for Interest Calculation' | translate }}</td>
+                <th scope="row">
+                  {{ 'labels.inputs.Minimum Overdraft Required for Interest Calculation' | translate }}
+                </th>
                 <td>
                   {{
                     savingsAccountData.minOverdraftForInterestCalculation
@@ -286,31 +288,31 @@
             }
             @if (savingsAccountData.minBalanceForInterestCalculation) {
               <tr>
-                <td>{{ 'labels.inputs.Min Balance Required for Interest Calculation' | translate }}</td>
+                <th scope="row">{{ 'labels.inputs.Min Balance Required for Interest Calculation' | translate }}</th>
                 <td>{{ savingsAccountData.minBalanceForInterestCalculation | formatNumber }}</td>
               </tr>
             }
             @if (savingsAccountData.minRequiredBalance) {
               <tr>
-                <td>{{ 'labels.inputs.Minimum Required Balance' | translate }}</td>
+                <th scope="row">{{ 'labels.inputs.Minimum Required Balance' | translate }}</th>
                 <td>{{ savingsAccountData.minRequiredBalance | formatNumber }}</td>
               </tr>
             }
             @if (savingsAccountData.enforceMinRequiredBalance) {
               <tr>
-                <td>{{ 'labels.inputs.Enforce Minimum Required Balance' | translate }}</td>
+                <th scope="row">{{ 'labels.inputs.Enforce Minimum Required Balance' | translate }}</th>
                 <td>{{ savingsAccountData.enforceMinRequiredBalance | yesNo }}</td>
               </tr>
             }
             @if (savingsAccountData.summary.lastInterestCalculationDate) {
               <tr>
-                <td>{{ 'labels.inputs.Interest Recalculation Date' | translate }}</td>
+                <th scope="row">{{ 'labels.inputs.Interest Recalculation Date' | translate }}</th>
                 <td>{{ savingsAccountData.summary.lastInterestCalculationDate | dateFormat }}</td>
               </tr>
             }
             @if (savingsAccountData.onHoldFunds) {
               <tr>
-                <td>{{ 'labels.inputs.On Hold Funds' | translate }}</td>
+                <th scope="row">{{ 'labels.inputs.On Hold Funds' | translate }}</th>
                 <td>
                   <a *mifosxHasPermission="'READ_SAVINGSACCOUNT'">{{
                     savingsAccountData.onHoldFunds | currency: currency.code : 'symbol-narrow' : '1.2-2'
@@ -320,7 +322,7 @@
             }
             @if (savingsAccountData.withHoldTax) {
               <tr>
-                <td>{{ 'labels.inputs.Withhold Tax Group' | translate }}</td>
+                <th scope="row">{{ 'labels.inputs.Withhold Tax Group' | translate }}</th>
                 <td>{{ savingsAccountData.taxGroup.name }}</td>
               </tr>
             }
@@ -333,7 +335,7 @@
         <table>
           <tbody>
             <tr>
-              <td>{{ 'labels.inputs.External Id' | translate }}</td>
+              <th scope="row">{{ 'labels.inputs.External Id' | translate }}</th>
               @if (savingsAccountData.externalId) {
                 <td>
                   <mifosx-external-identifier
@@ -346,7 +348,7 @@
               }
             </tr>
             <tr>
-              <td>{{ 'labels.inputs.Activated On' | translate }}</td>
+              <th scope="row">{{ 'labels.inputs.Activated On' | translate }}</th>
               <td>
                 {{
                   savingsAccountData.timeline.activatedOnDate
@@ -356,7 +358,7 @@
               </td>
             </tr>
             <tr>
-              <td>{{ 'labels.inputs.Currency' | translate }}</td>
+              <th scope="row">{{ 'labels.inputs.Currency' | translate }}</th>
               <td>{{ savingsAccountData.currency.name }} [{{ savingsAccountData.currency.code }}]</td>
             </tr>
           </tbody>

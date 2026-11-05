@@ -13,7 +13,7 @@
         <table>
           <tbody>
             <tr>
-              <td>{{ 'labels.inputs.Disbursement Date' | translate }}</td>
+              <th scope="row">{{ 'labels.inputs.Disbursement Date' | translate }}</th>
               <td>
                 {{ dataObject.timeline.actualDisbursementDate }}
                 @if (!dataObject.timeline.actualDisbursementDate) {
@@ -22,11 +22,11 @@
               </td>
             </tr>
             <tr>
-              <td>{{ 'labels.inputs.Currency' | translate }}</td>
+              <th scope="row">{{ 'labels.inputs.Currency' | translate }}</th>
               <td>{{ dataObject.currency.name }}</td>
             </tr>
             <tr>
-              <td>{{ 'labels.inputs.Loan Officer' | translate }}</td>
+              <th scope="row">{{ 'labels.inputs.Loan Officer' | translate }}</th>
               <td>
                 {{ dataObject.loanOfficerName }}
                 @if (!dataObject.loanOfficerName) {
@@ -40,7 +40,7 @@
               </td>
             </tr>
             <tr>
-              <td>{{ 'labels.inputs.External Id' | translate }}</td>
+              <th scope="row">{{ 'labels.inputs.External Id' | translate }}</th>
               <td>
                 <mifosx-external-identifier externalId="{{ dataObject.externalId }}"></mifosx-external-identifier>
               </td>
@@ -53,7 +53,7 @@
         <table>
           <tbody>
             <tr>
-              <td>{{ 'labels.inputs.Loan Purpose' | translate }}</td>
+              <th scope="row">{{ 'labels.inputs.Loan Purpose' | translate }}</th>
               <td>
                 {{ dataObject.loanPurposeName }}
                 @if (!dataObject.loanPurposeName) {
@@ -62,19 +62,19 @@
               </td>
             </tr>
             <tr>
-              <td>{{ 'labels.inputs.Approved Amount' | translate }}</td>
+              <th scope="row">{{ 'labels.inputs.Approved Amount' | translate }}</th>
               <td>
                 <span>{{ dataObject.approvedPrincipal | formatNumber }}</span>
               </td>
             </tr>
             <tr>
-              <td>{{ 'labels.inputs.Disburse Amount' | translate }}</td>
+              <th scope="row">{{ 'labels.inputs.Disburse Amount' | translate }}</th>
               <td>
                 <span>{{ dataObject.principal | formatNumber }}</span>
               </td>
             </tr>
             <tr>
-              <td>{{ 'labels.inputs.Arrears By' | translate }}</td>
+              <th scope="row">{{ 'labels.inputs.Arrears By' | translate }}</th>
               <td>
                 {{ dataObject.summary?.totalOverdue | formatNumber }}
                 @if (dataObject.summary?.totalOverdue < 0) {
