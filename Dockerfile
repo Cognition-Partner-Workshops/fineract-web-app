@@ -1,49 +1,71 @@
-###############
-### STAGE 1: Build app
-###############
-ARG BUILDER_IMAGE=node:24-alpine3.22
-ARG NGINX_IMAGE=nginx:1.29-alpine3.22-slim
+# Platform standard (otterworks platform/standards): every stage starts from
+# the approved node-20-slim image pinned by digest. The first stage runs the
+# unit tests, so `docker build --target test` is the unit test step.
 
-FROM $BUILDER_IMAGE AS builder
+###############
+### STAGE 1: Install dependencies and run the unit tests
+###############
+FROM docker.io/library/node:20-bookworm-slim@sha256:2cf067cfed83d5ea958367df9f966191a942351a2df77d6f0193e162b5febfc0 AS test
+
 ARG NPM_REGISTRY_URL=https://registry.npmjs.org/
-ARG BUILD_ENVIRONMENT_OPTIONS="--configuration production"
-ARG PUPPETEER_DOWNLOAD_HOST_ARG=https://storage.googleapis.com
-ARG PUPPETEER_CHROMIUM_REVISION_ARG=1011831
-ARG PUPPETEER_SKIP_DOWNLOAD_ARG
 
-# Set the environment variable to increase Node.js memory limit
-ENV NODE_OPTIONS="--max-old-space-size=4096"
+# Browsers for Cypress, Puppeteer and Playwright are only used by the e2e
+# suites, which need a running Fineract backend and are not run here. The Jest
+# unit tests run headlessly on jsdom and need no browser.
+ENV CI=true \
+    HUSKY=0 \
+    CYPRESS_INSTALL_BINARY=0 \
+    PUPPETEER_SKIP_DOWNLOAD=true \
+    PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 \
+    NODE_OPTIONS=--max-old-space-size=4096
 
-RUN apk add --no-cache git
+# git: version.js (npm postinstall) runs git describe for the version info.
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends git ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /usr/src/app
-
 ENV PATH=/usr/src/app/node_modules/.bin:$PATH
-
-# Export Puppeteer env variables for installation with non-default registry.
-ENV PUPPETEER_DOWNLOAD_HOST=$PUPPETEER_DOWNLOAD_HOST_ARG
-ENV PUPPETEER_CHROMIUM_REVISION=$PUPPETEER_CHROMIUM_REVISION_ARG
-ENV PUPPETEER_SKIP_DOWNLOAD=$PUPPETEER_SKIP_DOWNLOAD_ARG
 
 COPY ./ /usr/src/app/
 
-RUN npm cache clear --force
+RUN npm config set fetch-retry-maxtimeout 120000 \
+    && npm config set registry $NPM_REGISTRY_URL --location=global \
+    && npm ci
 
-RUN npm config set fetch-retry-maxtimeout 120000
-RUN npm config set registry $NPM_REGISTRY_URL --location=global
+RUN npm run test:ci \
+    && node --test server/
 
-RUN npm ci
-
+###############
+### STAGE 2: Build the production bundle
+###############
+FROM test AS build
+ARG BUILD_ENVIRONMENT_OPTIONS="--configuration production"
 RUN sh -c "ng build --output-path=/dist $BUILD_ENVIRONMENT_OPTIONS"
 
 ###############
-### STAGE 2: Serve app with nginx ###
+### STAGE 3: Serve the bundle from Node as a non-root user
 ###############
-FROM $NGINX_IMAGE
+FROM docker.io/library/node:20-bookworm-slim@sha256:2cf067cfed83d5ea958367df9f966191a942351a2df77d6f0193e162b5febfc0
 
-COPY --from=builder /dist/browser /usr/share/nginx/html
+# Debian security updates on top of the pinned base (Trivy blocks fixable
+# CRITICAL CVEs), then drop the package managers node does not need at runtime.
+RUN apt-get update \
+    && apt-get upgrade -y --no-install-recommends \
+    && rm -rf /var/lib/apt/lists/* \
+    && rm -rf /usr/local/lib/node_modules/npm /usr/local/lib/node_modules/corepack \
+    /usr/local/bin/npm /usr/local/bin/npx /usr/local/bin/corepack /opt/yarn-* \
+    /usr/local/bin/yarn /usr/local/bin/yarnpkg
 
-EXPOSE 80
+WORKDIR /app
+COPY --from=build /usr/src/app/server/server.js /app/server.js
+COPY --from=build /dist/browser /app/public
 
-# When the container starts, replace the env.js with values from environment variables
-CMD ["/bin/sh",  "-c",  "envsubst < /usr/share/nginx/html/assets/env.template.js > /usr/share/nginx/html/assets/env.js && exec nginx -g 'daemon off;'"]
+# Heap sized for the 256Mi container limit of the platform limit range.
+ENV NODE_ENV=production \
+    PORT=8080 \
+    NODE_OPTIONS=--max-old-space-size=128
+
+USER 10001
+EXPOSE 8080
+CMD ["node", "/app/server.js"]
