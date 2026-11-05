@@ -420,7 +420,9 @@ export class RunReportComponent implements OnInit {
           displayedColumns.push(header.columnName);
         });
 
-        this.exportToXLS(reportName, res.data, displayedColumns);
+        this.exportToXLS(reportName, res.data, displayedColumns).catch(() => {
+          this.alertService.alert({ type: 'Report generation', message: `Report: ${reportName} export failed` });
+        });
       } else {
         this.alertService.alert({ type: 'Report generation', message: `Report: ${reportName} without data generated` });
       }

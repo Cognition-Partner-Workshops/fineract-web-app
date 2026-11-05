@@ -63,6 +63,7 @@ export class ViewAdhocQueryComponent {
         return reportRunFrequency.value;
       }
     }
+    return '';
   }
 
   /**

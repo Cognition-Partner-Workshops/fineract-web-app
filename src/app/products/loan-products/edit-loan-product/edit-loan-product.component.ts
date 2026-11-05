@@ -186,6 +186,7 @@ export class EditLoanProductComponent implements OnInit {
     if (this.loanProductInterestRefundStep != null) {
       return this.loanProductInterestRefundStep.loanProductInterestRefundForm;
     }
+    return null;
   }
 
   setViewChildForm(viewChildForm: UntypedFormGroup): void {

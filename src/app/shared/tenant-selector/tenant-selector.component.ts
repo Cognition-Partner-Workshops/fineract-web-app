@@ -34,9 +34,9 @@ export class TenantSelectorComponent implements OnInit {
   ngOnInit(): void {
     this.tenantSelector.setValue(this.settingsService.tenantIdentifier);
     if (this.tenants.length > 1) {
-      this.tenantSelector.enable;
+      this.tenantSelector.enable();
     } else {
-      this.tenantSelector.disable;
+      this.tenantSelector.disable();
     }
   }
 

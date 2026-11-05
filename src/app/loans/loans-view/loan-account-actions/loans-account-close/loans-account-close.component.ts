@@ -71,7 +71,7 @@ export class LoansAccountCloseComponent implements OnInit {
   createCloseForm() {
     this.closeLoanForm = this.formBuilder.group({
       transactionDate: [
-        new Date(this.dataObject.date) || new Date(),
+        this.dataObject.date ? new Date(this.dataObject.date) : new Date(),
         Validators.required
       ],
       note: []
