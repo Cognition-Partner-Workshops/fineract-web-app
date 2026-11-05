@@ -93,7 +93,8 @@
                       <td>{{ 'labels.inputs.Current Balance' | translate }}</td>
                       <td class="r-amount">
                         {{
-                          loanDetailsData.summary.totalOutstanding | currency: currency.code : 'symbol-narrow' : '1.2-2'
+                          loanDetailsData.summary.totalPrincipalOutstanding
+                            | currency: currency.code : 'symbol-narrow' : '1.2-2'
                         }}
                       </td>
                     </tr>

@@ -67,7 +67,7 @@
                     <td>{{ 'labels.inputs.Current Balance' | translate }}</td>
                     <td class="r-amount">
                       {{
-                        savingsAccountData.summary.accountBalance | currency: currency.code : 'symbol-narrow' : '1.2-2'
+                        savingsAccountData.summary.totalDeposits | currency: currency.code : 'symbol-narrow' : '1.2-2'
                       }}
                     </td>
                   </tr>
