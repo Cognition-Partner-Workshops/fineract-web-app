@@ -1,0 +1,7 @@
+module.exports = {
+  '/fineract-provider/**': {
+    target: 'https://localhost:8443',
+    secure: false,
+    changeOrigin: true
+  }
+};
